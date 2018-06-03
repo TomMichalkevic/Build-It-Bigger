@@ -2,6 +2,7 @@ package com.tomasmichalkevic.builditbigger;
 
 import com.udacity.gradle.builditbigger.*;
 import android.support.test.runner.AndroidJUnit4;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.junit.Assert;
@@ -25,11 +26,7 @@ public class EndpointAsyncTaskTest {
         EndpointsAsyncTask endpointAsyncTask = new EndpointsAsyncTask();
         try {
             String result = endpointAsyncTask.execute().get();
-            boolean haveAJoke = false;
-            if(result.length()>0){
-                haveAJoke = true;
-            }
-            Assert.assertEquals(haveAJoke, true);
+            assertFalse(TextUtils.isEmpty(result));
         } catch (InterruptedException | ExecutionException e) {
             Log.e("TESTING", "testAsyncTask: ", e);
         }

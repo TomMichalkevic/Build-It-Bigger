@@ -17,8 +17,8 @@ public class JokeActivity extends Activity {
 
         Intent intent = getIntent();
 
-        if(intent.hasExtra("joke")){
-            joke_tv.setText(intent.getStringExtra("joke"));
+        if(intent.hasExtra(getString(R.string.joke))){
+            joke_tv.setText(intent.getStringExtra(getString(R.string.joke)));
         }
 
     }
